@@ -1,0 +1,46 @@
+Business Need:  Our recruiters need an efficient and streamlined way to schedule interviews with
+candidates. The current manual process involves back-and-forth communication to
+find suitable time slots, leading to delays and potential miscommunication. We want
+to automate the interview scheduling process within the Recruitment App, allowing
+recruiters to easily send interview invitations.  
+
+
+Functional Requirements:  
+
+1. Interview Scheduling Trigger:
+   The interview scheduling process should be from the Job Application record layout page on clicking a schedule Interview button and
+assigning the recruiter as the interviewer. 
+2. Email Notifications:
+ The system should automatically send email notifications to both the selected candidate(s) and the assigned interviewer. 
+ 
+The email notifications should include:
+
+Candidate's name and contact information 
+Interviewer's name
+Proposed interview date and time
+Interview location (if applicable)
+Any additional instructions or preparation materials. This
+should be fetched from the Position object’s new field named :
+Additional Instructions / Preparation materials.
+
+
+Technical Requirements:
+
+  Salesforce Flow:
+
+  Develop a screen-Flow to ease the interview scheduling process.
+  The Flow should be initiated by a custom button or action on the Job Application object's page layout.
+
+ Utilize Flow elements to:
+   Retrieve the selected Job Application record and their associated Candidate and create a job Interview record (new Custom Object).
+   Prompt to select an interview date and time.
+   Generate and send email notifications to the candidate and the interviewer using email templates.
+   The candidate should be pre-populated by default with candidate of the Job Application on which the button was clicked.
+   Adhere to CloudKaptan Standards & Guideline - Flow v1.0 
+
+ Email Templates:
+There should be two different email Templates. One for the Candidate and the other for the recruiter.
+ Design email templates for interview invitations containing candidate details , recruiter name and the schedule when the interview
+schedule details. 
+
+      
