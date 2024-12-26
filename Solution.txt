@@ -1,0 +1,71 @@
+
+1. Custom Object: Job Interview
+Create a custom object called Job Interview.
+
+Fields for the Job Interview object:
+Job Application (Lookup): Links to the Job Application record.
+Candidate (Lookup): Links to the Candidate record (can be populated automatically from the Job Application).
+Recruiter (Lookup): Links to the Recruiter (User object).
+Interview Date/Time (DateTime): Date and time of the interview.
+Interview Location (Text): Specifies the location of the interview.
+Additional Instructions (Long Text): Pulled from the Position object.
+Other relevant fields as required.
+
+
+
+2. Button/Action on Job Application
+Add a Custom Button or Quick Action on the Job Application object.
+Custom Button: Use to trigger the flow from the page layout.
+Quick Action: Use to make the process accessible in the Lightning Experience.
+
+
+
+3. Flow Design
+Use a Screen Flow to guide the recruiter through the interview scheduling process.
+
+Flow Steps:
+
+Start Element:
+The flow should be triggered by the button/action.
+
+Get Records:
+Fetch the Job Application record based on the record ID passed when the button is clicked.
+Retrieve the associated Candidate and Position record.
+
+Screen Element:
+Pre-populate the Candidate field with the candidate from the Job Application.
+Allow the recruiter to select the interview date, time, and location.
+Display additional instructions from the Position record.
+Create Job Interview Record:
+
+Use a Create Records element to create a Job Interview record with the entered details.
+
+Send Email Notifications:
+Use Action elements to send emails to both the Candidate and the Recruiter.
+Utilize pre-designed Email Templates with merge fields to populate the relevant details.
+
+Confirmation Screen:
+Display a confirmation message to the recruiter indicating the interview has been scheduled successfully.
+4. Email Templates
+Create two email templates:
+Candidate Email Template:
+Includes candidate name, interview date/time, location, and any preparation instructions.
+Recruiter Email Template:
+Includes recruiter name, candidate details, and the scheduled interview information.
+Merge Fields in Templates:
+Use merge fields for:
+Candidate Name: {!Job_Application__c.Candidate__r.Name}
+Recruiter Name: {!Job_Interview__c.Recruiter__r.Name}
+Interview Date: {!Job_Interview__c.Interview_Date__c}
+Interview Location: {!Job_Interview__c.Interview_Location__c}
+Additional Instructions: {!Position__c.Additional_Instructions__c}
+
+
+5. Add Button/Action to Page Layout
+Place the custom button or action on the Job Application page layout.
+Ensure that the necessary fields are visible to recruiters.
+
+
+
+-------------------------------------------------------------------------------------------------------------------
+
